@@ -7,5 +7,31 @@ body {
 	text-align: center;
 	color: #f6e9b7;
 	background-image: url("../images/intro.jpg");
+}
 
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:active {
+	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+	margin-right: 1.5em;
 }

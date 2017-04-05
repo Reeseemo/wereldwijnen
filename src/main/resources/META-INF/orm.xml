@@ -9,11 +9,13 @@
     select l from Land l order by l.naam
   		</query>
 	</named-query>
-<!-- 	<named-query name='Wijn.findAll'>
+	<!-- <named-query name='Wijn.findAll'> <query> select w from Wijn w order 
+		by w.naam </query> </named-query> -->
+	<named-query name='Soort.findByCountry'>
 		<query>
-    select w from Wijn w order by w.naam
+    select s from Soort s where s.landid = :landid order by s.naam 
   		</query>
-	</named-query> -->
+	</named-query>
 
 
 </entity-mappings>

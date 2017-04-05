@@ -10,19 +10,18 @@
 <body>
 	<v:menu />
 
-<%-- 	<c:if test='${not empty land}'>
+	<c:if test='${not empty land}'>
 		<h2>Soorten uit ${land.naam}</h2>
 		<c:url value='' var='soortUrl'>
 			<c:param name='id' value='${soort.id}' />
 			<c:param name='soort' value='true' />
 		</c:url>
-		<dl>
-			<a href='${soortUrl}'> <c:forEach items='${land.soorten}'
-					var='soort'>
-				${soort.naam}
-			</c:forEach></a>
-		</dl>
-	</c:if> --%>
-	
+		<ul class='soorten'>
+			<c:forEach items='${land.soorten}' var='soort'>
+				<a href='${soortUrl}'><li>${soort.naam}</li></a>
+			</c:forEach>
+		</ul>
+	</c:if>
+
 </body>
 </html>

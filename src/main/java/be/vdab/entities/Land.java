@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -19,9 +20,9 @@ public class Land implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String naam;
-	// @OneToMany(mappedBy = "land")
-	// @OrderBy("naam")
-	// private Set<Soort> soorten;
+	@OneToMany(mappedBy = "land")
+	@OrderBy("naam")
+	private Set<Soort> soorten;
 
 	public long getId() {
 		return id;
@@ -29,6 +30,10 @@ public class Land implements Serializable {
 
 	public String getNaam() {
 		return naam;
+	}
+
+	public Set<Soort> getSoorten() {
+		return soorten;
 	}
 
 }

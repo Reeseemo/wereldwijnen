@@ -20,9 +20,9 @@ public class Soort implements Serializable {
 	private long id;
 	private String naam;
 	private long landid;
-//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-//	@JoinColumn(name = "landid")
-//	private Land land;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "landid", insertable = false, updatable = false)
+	private Land land;
 
 	public long getId() {
 		return id;

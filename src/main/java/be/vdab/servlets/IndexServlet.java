@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import be.vdab.services.LandService;
+import be.vdab.services.SoortService;
 
 /**
  * Servlet implementation class IndexServlet
@@ -18,16 +19,19 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VIEW = "/WEB-INF/JSP/index.jsp";
 	private final transient LandService landService = new LandService();
+	private final transient SoortService soortService = new SoortService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("landen", landService.findAll());
-//		String id = request.getParameter("id");
-//		if (id != null) {
-//			landService.read(Long.parseLong(id)).ifPresent(land -> request.setAttribute("land", land));
-//		}
+		String id = request.getParameter("id");
+		if (id != null) {
+			landService.read(Long.parseLong(id)).ifPresent(land -> request.setAttribute("land", land));
+			if (request.getParameter("soort") != null) {
+				request.setAttribute("soorten", soortService.findByCountry(Long.parseLong(id)));
+			}
+		}
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 }
-
