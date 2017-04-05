@@ -30,30 +30,15 @@
 				<c:url value='' var='wijnUrl'>
 					<c:param name='wijn' value='${wijn.id}' />
 				</c:url>
-				<a href='${wijnUrl}'><li>${wijn.jaar}</li></a>
+				<a href='${wijnUrl}'><li>${wijn.jaar}</a>
+				<c:forEach var="i" begin="1" end="${wijn.beoordeling}">
+				&#9733;
+				</c:forEach>
+				</li>
 			</c:forEach>
 		</ul>
 	</c:if>
 
-
-
-
-
-
-
-
-
-
-	<c:forEach
-		items='${empty param.bestbetaalde ? campus.docenten : docenten}'
-		var='docent'>
-		<dt>${docent.naam}</dt>
-		<dd>
-			&euro;
-			<fmt:formatNumber value='${docent.wedde}' maxFractionDigits='2'
-				minFractionDigits='2' />
-		</dd>
-	</c:forEach>
 
 </body>
 </html>
