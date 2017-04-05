@@ -24,6 +24,9 @@ public class Wijn implements Serializable {
 	private byte beoordeling;
 	private BigDecimal prijs;
 	private int inBestelling;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "soortid", insertable = false, updatable = false)
+	private Soort soort;
 
 	public long getId() {
 		return id;
@@ -47,6 +50,10 @@ public class Wijn implements Serializable {
 
 	public int getInBestelling() {
 		return inBestelling;
+	}
+
+	public Soort getSoort() {
+		return soort;
 	}
 
 }

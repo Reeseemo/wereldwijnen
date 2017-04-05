@@ -26,10 +26,13 @@ public class IndexServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setAttribute("landen", landService.findAll());
 		String id = request.getParameter("id");
+		String soortid = request.getParameter("soort");
 		if (id != null) {
 			landService.read(Long.parseLong(id)).ifPresent(land -> request.setAttribute("land", land));
 			if (request.getParameter("soort") != null) {
 				request.setAttribute("soorten", soortService.findByCountry(Long.parseLong(id)));
+				soortService.read(Long.parseLong(soortid)).ifPresent(soort -> request.setAttribute("soort", soort));
+
 			}
 		}
 		request.getRequestDispatcher(VIEW).forward(request, response);

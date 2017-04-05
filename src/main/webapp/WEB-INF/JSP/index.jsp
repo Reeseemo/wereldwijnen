@@ -12,16 +12,48 @@
 
 	<c:if test='${not empty land}'>
 		<h2>Soorten uit ${land.naam}</h2>
-		<c:url value='' var='soortUrl'>
-			<c:param name='id' value='${soort.id}' />
-			<c:param name='soort' value='true' />
-		</c:url>
 		<ul class='soorten'>
 			<c:forEach items='${land.soorten}' var='soort'>
+				<c:url value='' var='soortUrl'>
+					<c:param name='id' value='${land.id}' />
+					<c:param name='soort' value='${soort.id}' />
+				</c:url>
 				<a href='${soortUrl}'><li>${soort.naam}</li></a>
 			</c:forEach>
 		</ul>
 	</c:if>
+
+	<c:if test='${not empty soort}'>
+		<h2>Wijnen uit ${soort.naam}</h2>
+		<ul class='wijnen'>
+			<c:forEach items='${soort.wijnen}' var='wijn'>
+				<c:url value='' var='wijnUrl'>
+					<c:param name='wijn' value='${wijn.id}' />
+				</c:url>
+				<a href='${wijnUrl}'><li>${wijn.jaar}</li></a>
+			</c:forEach>
+		</ul>
+	</c:if>
+
+
+
+
+
+
+
+
+
+
+	<c:forEach
+		items='${empty param.bestbetaalde ? campus.docenten : docenten}'
+		var='docent'>
+		<dt>${docent.naam}</dt>
+		<dd>
+			&euro;
+			<fmt:formatNumber value='${docent.wedde}' maxFractionDigits='2'
+				minFractionDigits='2' />
+		</dd>
+	</c:forEach>
 
 </body>
 </html>

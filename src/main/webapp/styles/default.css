@@ -25,13 +25,13 @@ a:active {
 	text-decoration: underline;
 }
 
-ul {
+ul.soorten {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-li {
+ul.soorten li {
 	display: inline;
 	margin-right: 1.5em;
 }
