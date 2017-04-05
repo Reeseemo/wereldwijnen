@@ -1,0 +1,11 @@
+body {
+	background-color: #f6e9b7;
+	font-family: sans-serif;
+}
+
+#intro {
+	text-align: center;
+	color: #f6e9b7;
+	background-image: url("../images/intro.jpg");
+
+}
