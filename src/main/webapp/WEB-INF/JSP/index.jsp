@@ -8,7 +8,17 @@
 <v:head title='Wereldwijnen' />
 </head>
 <body>
-	<v:menu />
+	<div id="intro">
+		<h1>Wereldwijnen</h1>
+		<c:forEach items='${landen}' var='land'>
+			<c:url value='' var='url'>
+				<c:param name='id' value='${land.id}' />
+			</c:url>
+			<a href='${url}'><img
+				src='<c:url value='images/${land.id}.png'/>' alt='${land.id}'
+				id='${land.id}' /></a>
+		</c:forEach>
+	</div>
 
 	<c:if test='${not empty land}'>
 		<h2>Soorten uit ${land.naam}</h2>
@@ -18,7 +28,7 @@
 					<c:param name='id' value='${land.id}' />
 					<c:param name='soort' value='${soort.id}' />
 				</c:url>
-				<a href='${soortUrl}'><li>${soort.naam}</li></a>
+				<li><a href='${soortUrl}'>${soort.naam} </a></li>
 			</c:forEach>
 		</ul>
 	</c:if>
@@ -27,14 +37,15 @@
 		<h2>Wijnen uit ${soort.naam}</h2>
 		<ul class='wijnen'>
 			<c:forEach items='${soort.wijnen}' var='wijn'>
-				<c:url value='' var='wijnUrl'>
+				<c:url var='wijnUrl' value='/details.htm'>
+					<c:param name='id' value='${land.id}' />
+					<c:param name='soort' value='${soort.id}' />
 					<c:param name='wijn' value='${wijn.id}' />
 				</c:url>
-				<a href='${wijnUrl}'><li>${wijn.jaar}</a>
-				<c:forEach var="i" begin="1" end="${wijn.beoordeling}">
+				<li><a href='${wijnUrl}'>${wijn.jaar}</a> <c:forEach var="i"
+						begin="1" end="${wijn.beoordeling}">
 				&#9733;
-				</c:forEach>
-				</li>
+				</c:forEach></li>
 			</c:forEach>
 		</ul>
 	</c:if>

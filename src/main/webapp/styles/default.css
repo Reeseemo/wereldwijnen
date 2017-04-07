@@ -11,18 +11,22 @@ body {
 
 a:link {
 	text-decoration: none;
+	color: black;
 }
 
 a:visited {
 	text-decoration: none;
+	color: #6d6d6d;
 }
 
 a:hover {
 	text-decoration: underline;
+	color: #6d6d6d;
 }
 
 a:active {
 	text-decoration: underline;
+	color: #6d6d6d;
 }
 
 ul.soorten {
@@ -34,4 +38,15 @@ ul.soorten {
 ul.soorten li {
 	display: inline;
 	margin-right: 1.5em;
+}
+
+th {
+	text-align: left;
+	font-weight: lighter;
+	width: 200px;
+}
+
+td {
+	text-align: left;
+	font-weight: bold;
 }
