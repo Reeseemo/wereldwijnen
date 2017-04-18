@@ -9,7 +9,7 @@ import be.vdab.entities.Wijn;
 import be.vdab.repositories.SoortRepository;
 import be.vdab.repositories.WijnRepository;
 
-public class WijnService {
+public class WijnService extends AbstractService {
 
 	private final WijnRepository wijnRepository = new WijnRepository();
 	private final SoortRepository soortRepository = new SoortRepository();

@@ -9,7 +9,7 @@ import be.vdab.entities.Soort;
 import be.vdab.repositories.LandRepository;
 import be.vdab.repositories.SoortRepository;
 
-public class SoortService {
+public class SoortService extends AbstractService {
 	private final SoortRepository soortRepository = new SoortRepository();
 	private final LandRepository landRepository = new LandRepository();
 

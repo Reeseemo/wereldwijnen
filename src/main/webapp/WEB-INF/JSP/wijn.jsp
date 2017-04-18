@@ -11,7 +11,7 @@
 
 	<c:if test='${not empty wijn}'>
 		<h1>Wijn toevoegen aan mandje</h1>
-		<a href="./index.htm" class="Home">Terug naar overzicht</a>
+		<a href="./index.htm">Terug naar overzicht</a>
 
 		<table>
 			<tr>
@@ -36,10 +36,19 @@
 				<th scope="row">Prijs</th>
 				<td>${wijn.prijs}</td>
 			</tr>
-
 		</table>
-
 	</c:if>
+
+	<form method='post' id='toevoegform'>
+		<label>Aantal flessen:<span>${fouten.aantal}</span> <input
+			name='aantal' value='${param.aantal}' type='number' min='1' autofocus required>
+		</label> <input type='submit' value='Toevoegen' id='toevoegknop'>
+	</form>
+	<script>
+		document.getElementById('toevoegform').onsubmit = function() {
+			document.getElementById('toevoegknop').disabled = true;
+		};
+	</script>
 
 
 </body>
