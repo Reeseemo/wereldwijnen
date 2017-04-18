@@ -6,7 +6,7 @@ body {
 #intro {
 	text-align: center;
 	color: #f6e9b7;
-	background-image: url("../images/intro.jpg");	
+	background-image: url("../images/intro.jpg");
 }
 
 #mandje {
@@ -48,20 +48,9 @@ table {
 	margin: 1em 0;
 }
 
-th {
-	text-align: left;
-	font-weight: lighter;
-	width: 15em;
-}
-
-td {
-	text-align: left;
-	font-weight: bold;
-}
-
 input {
-	display: block;
 	margin: 0.5em 0;
+	display: block;
 }
 
 label span {
@@ -77,4 +66,41 @@ label span {
 
 label span:empty {
 	display: none;
+}
+
+input[type='checkbox'], input[type='radio'] {
+	display: inline;
+}
+
+dt {
+	float: left;
+	width: 15em;
+}
+
+dd {
+	margin-left: 15em;
+	font-weight: bold;
+}
+
+table, th, td {
+	border: 1px solid silver;
+	border-collapse: collapse;
+}
+
+thead tr, tfoot tr {
+	color: white;
+	background-color: gray;
+}
+
+td {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #FAFAFA;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #E6E6E6;
 }
