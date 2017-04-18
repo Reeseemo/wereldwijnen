@@ -18,7 +18,15 @@
 				src='<c:url value='images/${land.id}.png'/>' alt='${land.id}'
 				id='${land.id}' /></a>
 		</c:forEach>
+		<div id="mandje">
+			<c:if test='${not empty mandje}'>
+				<a href='<c:url value='/mandje.htm'/>'><img
+					src='<c:url value='/images/mandje.png'/>' alt='Mandje' /></a>
+			</c:if>
+		</div>
 	</div>
+
+
 
 	<c:if test='${not empty land}'>
 		<h2>Soorten uit ${land.naam}</h2>
@@ -32,6 +40,8 @@
 			</c:forEach>
 		</ul>
 	</c:if>
+
+
 
 	<c:if test='${not empty soort}'>
 		<h2>Wijnen uit ${soort.naam}</h2>

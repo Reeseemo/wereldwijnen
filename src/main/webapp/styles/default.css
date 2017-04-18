@@ -6,7 +6,11 @@ body {
 #intro {
 	text-align: center;
 	color: #f6e9b7;
-	background-image: url("../images/intro.jpg");
+	background-image: url("../images/intro.jpg");	
+}
+
+#mandje {
+	text-align: center;
 }
 
 a:link {
