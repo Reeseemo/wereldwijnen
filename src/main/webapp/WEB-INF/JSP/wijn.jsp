@@ -15,10 +15,10 @@
 
 		<dl>
 			<dt>Land</dt>
-			<dd>${land.naam}</dd>
+			<dd>${wijn.soort.land.naam}</dd>
 
 			<dt>Soort</dt>
-			<dd>${soort.naam}</dd>
+			<dd>${wijn.soort.naam}</dd>
 
 			<dt>Jaar</dt>
 			<dd>${wijn.jaar}</dd>

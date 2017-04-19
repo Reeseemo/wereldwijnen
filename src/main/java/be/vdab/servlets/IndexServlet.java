@@ -39,7 +39,6 @@ public class IndexServlet extends HttpServlet {
 		if (id != null) {
 			landService.read(Long.parseLong(id)).ifPresent(land -> request.setAttribute("land", land));
 			if (soortid != null) {
-				request.setAttribute("soorten", soortService.findByCountry(Long.parseLong(id)));
 				soortService.read(Long.parseLong(soortid)).ifPresent(soort -> request.setAttribute("soort", soort));
 
 			}

@@ -22,12 +22,22 @@
 			</tr>
 			<c:forEach var="wijn" items='${wijnInMandje}'>
 				<tr>
-					<td>${land.naam}${wijn.soort.naam}${wijn.jaar}</td>
+					<td>${wijn.soort.land.naam} ${wijn.soort.naam} ${wijn.jaar}</td>
 					<td>${wijn.prijs}</td>
-					<td>${bestelbonlijn.aantal}</td>
-					<td>${wijn.prijs * bestelbonlijn.aantal}</td>
+					<c:forEach var='entry' items='${mandje}'>
+						<c:if test='${wijn.id==entry.key}'>
+							<td>${entry.value}</td>
+							<td>${wijn.prijs * entry.value}</td>
+							<c:set var="totaal" value="${totaal + wijn.prijs * entry.value}" />
+						</c:if>
+					</c:forEach>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td colspan="3" align="right">Totaal:</td>
+				<td>${totaal}</td>
+			</tr>
+
 		</table>
 
 

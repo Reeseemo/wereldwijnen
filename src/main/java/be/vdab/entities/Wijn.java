@@ -25,7 +25,7 @@ public class Wijn implements Serializable {
 	private BigDecimal prijs;
 	private int inBestelling;
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "soortid")
+	@JoinColumn(name = "soortid", insertable = false, updatable = false)
 	private Soort soort;
 
 	public long getId() {

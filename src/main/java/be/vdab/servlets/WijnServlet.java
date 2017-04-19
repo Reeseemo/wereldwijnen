@@ -25,26 +25,15 @@ public class WijnServlet extends HttpServlet {
 	private static final String VIEW = "/WEB-INF/JSP/wijn.jsp";
 	private static final String REDIRECT_URL = "%s/index.htm";
 	private final transient WijnService wijnService = new WijnService();
-	private final transient LandService landService = new LandService();
-	private final transient SoortService soortService = new SoortService();
 	private final transient BestelbonLijnService bestelbonLijnService = new BestelbonLijnService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			String id = request.getParameter("id");
-			String soortid = request.getParameter("soort");
 			String wijnid = request.getParameter("wijn");
 			if (wijnid != null) {
-				if (id != null) {
-					if (soortid != null) {
-						landService.read(Long.parseLong(id)).ifPresent(land -> request.setAttribute("land", land));
-						soortService.read(Long.parseLong(soortid))
-								.ifPresent(soort -> request.setAttribute("soort", soort));
-						wijnService.read(Long.parseLong(wijnid)).ifPresent(wijn -> request.setAttribute("wijn", wijn));
-					}
-				}
+				wijnService.read(Long.parseLong(wijnid)).ifPresent(wijn -> request.setAttribute("wijn", wijn));
 			}
 
 			request.getRequestDispatcher(VIEW).forward(request, response);
