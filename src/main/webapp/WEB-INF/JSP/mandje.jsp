@@ -22,7 +22,7 @@
 			</tr>
 			<c:forEach var="wijn" items='${wijnInMandje}'>
 				<tr>
-					<td>${wijn.soort.land.naam} ${wijn.soort.naam} ${wijn.jaar}</td>
+					<td>${wijn.soort.land.naam}${wijn.soort.naam} ${wijn.jaar}</td>
 					<td>${wijn.prijs}</td>
 					<c:forEach var='entry' items='${mandje}'>
 						<c:if test='${wijn.id==entry.key}'>
@@ -47,8 +47,8 @@
 				value='${param.naam}'>
 			</label> <label>Straat:<span>${fouten.straat}</span> <input
 				name='straat' value='${param.straat}'>
-			</label> <label>Huisnummer:<span>${fouten.huisnummer}</span> <input
-				name='huisnummer' value='${param.huisnummer}'>
+			</label> <label>Huisnummer:<span>${fouten.huisNr}</span> <input
+				name='huisNr' value='${param.huisNr}'>
 			</label> <label>Postcode:<span>${fouten.postcode}</span> <input
 				name='postcode' value='${param.postcode}'>
 			</label> <label>Gemeente:<span>${fouten.gemeente}</span> <input
@@ -56,16 +56,23 @@
 			</label>
 
 			<div>
-				<label><span>${fouten.afhalen}</span> <input type='radio'
-					name='methode' value='afhalen' ${param.afhalen ? 'checked' : ''}>Afhalen</label><br>
-				<label> <input type='radio' name='methode' value='opsturen'
-					${param.opsturen ? 'checked' : ''}>Opsturen
+				<label><span>${fouten.bestelwijze}</span><br> <input
+					type='radio' name='bestelwijze' value=0 checked="checked">Afhalen</label><br>
+				<label> <input type='radio' name='bestelwijze' value=1
+					${param.bestelwijze ? 'checked' : ''}>Opsturen
 				</label>
 			</div>
 
 			<input type='submit' value='Als bestelbon bevestigen'
 				id='toevoegknop'>
 		</form>
+		<br>
+		<c:if test='${not empty fouten}'>
+			<label>Fouten: <c:forEach var='entry' items='${fouten}'>
+					<span>${entry.value}</span>
+				</c:forEach></label>
+		</c:if>
+
 		<script>
 			document.getElementById('toevoegform').onsubmit = function() {
 				document.getElementById('toevoegknop').disabled = true;

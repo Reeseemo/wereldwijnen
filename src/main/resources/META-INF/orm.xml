@@ -19,10 +19,5 @@
     select s from Soort s where s.landid = :landid order by s.naam 
   		</query>
 	</named-query>
-<!-- 	<named-query name='BestelbonLijn.findAll'>
-		<query>
-    select b from BestelbonLijn b where b.bonid = :bonid order by b.wijnid 
-  		</query>
-	</named-query> -->
 
 </entity-mappings>

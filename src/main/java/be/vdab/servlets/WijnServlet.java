@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import be.vdab.services.BestelbonLijnService;
-import be.vdab.services.LandService;
-import be.vdab.services.SoortService;
 import be.vdab.services.WijnService;
 
 /**
@@ -25,7 +22,6 @@ public class WijnServlet extends HttpServlet {
 	private static final String VIEW = "/WEB-INF/JSP/wijn.jsp";
 	private static final String REDIRECT_URL = "%s/index.htm";
 	private final transient WijnService wijnService = new WijnService();
-	private final transient BestelbonLijnService bestelbonLijnService = new BestelbonLijnService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -61,7 +57,6 @@ public class WijnServlet extends HttpServlet {
 		}
 
 		if (fouten.isEmpty()) {
-			// BestelbonLijn bestelbonLijn = new BestelbonLijn(wijnid, aantal);
 			HttpSession session = request.getSession();
 			HashMap<Long, Integer> mandje = (HashMap<Long, Integer>) session.getAttribute("mandje");
 			if (mandje == null) {
